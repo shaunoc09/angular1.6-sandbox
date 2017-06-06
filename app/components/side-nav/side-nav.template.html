@@ -4,13 +4,14 @@
         class="md-sidenav-left"
         md-component-id="left"
         md-is-locked-open="$mdMedia('gt-md')"
+        md-is-open="showLeft"
         md-whiteframe="4">
 
       <md-toolbar class="md-theme-indigo">
         <h1 class="md-toolbar-tools">Sidenav Left</h1>
       </md-toolbar>
       <md-content layout-padding>
-        <md-button ng-click="close()" class="md-primary" hide-gt-md>
+        <md-button ng-click="showLeft=!showLeft" class="md-primary" hide-gt-md>
           Close Sidenav Left
         </md-button>
         <p hide show-gt-md>
@@ -21,7 +22,6 @@
 
     </md-sidenav>
 
-    
     <md-content flex layout-padding>
 
       <div layout="column" layout-align="top center">
@@ -33,14 +33,14 @@
         </p>
 
         <div>
-          <md-button ng-click="toggleLeft()"
+          <md-button  ng-click="showLeft=!showLeft"
             class="md-primary" hide-gt-md>
             Toggle left
           </md-button>
         </div>
 
         <div>
-          <md-button ng-click="showSideBar=true"
+          <md-button ng-click="showSideBar=!showSideBar"
             class="md-primary">
             Toggle right
           </md-button>
@@ -51,7 +51,8 @@
 
     </md-content>
 
-    <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-is-open="showSideBar" md-component-id="right">
+    <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-is-open="showSideBar"
+        md-is-locked-open="isLocked" md-component-id="right">
 
       <md-toolbar class="md-theme-light">
         <h1 class="md-toolbar-tools">Sidenav Right</h1>
@@ -64,7 +65,11 @@
                    ng-model="data" md-autofocus>
           </md-input-container>
         </form>
-        <md-button ng-click="close()" class="md-primary">
+        <md-button ng-click="isLocked=!isLocked"
+            class="md-primary">
+            Pin/Unpin
+        </md-button>
+        <md-button ng-click="showSideBar=!showSideBar" class="md-primary">
           Close Sidenav Right
         </md-button>
       </md-content>

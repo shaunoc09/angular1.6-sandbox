@@ -1,5 +1,4 @@
-# Build using `angular-seed` — the seed for AngularJS apps
-
+# Built using `angular-seed` — the seed for AngularJS apps
 
 ## Sandbox Angular App
 
